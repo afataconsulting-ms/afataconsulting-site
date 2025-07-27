@@ -1,140 +1,323 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Afata Consulting</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-  </head>
-  <body class="bg-black text-white font-sans">
-    <!-- SECTION HERO EN TÊTE -->
-    <header class="relative flex flex-col items-center justify-center min-h-screen px-4 text-center text-white overflow-hidden" style="background-image: url('/static/archi.jpg'); background-size: cover; background-position: center;">
-      <!-- filtre sombre -->
-      <div class="absolute inset-0 bg-black bg-opacity-80 z-0"></div>
-      <!-- Contenu au-dessus -->
-      <div class="relative z-10 flex flex-col items-center">
-        <img src="static/profil.jpg" alt="Photo de profil" class="w-32 h-32 rounded-full mb-6 shadow-lg">
-        <h1 class="text-3xl md:text-5xl font-bold mb-6"> Architecte Cloud Azure & Microsoft Fabric </h1>
-        <p class="text-purple-400 text-sm font-semibold tracking-wide uppercase mb-4 mt-8"> Expertise </p>
-        <p class="text-gray-300 text-lg max-w-3xl mx-auto leading-relaxed"> Avec <span class="font-semibold text-white">10 ans d'expertise</span> dans la data Microsoft, je conçois des plateformes cloud modernes — <span class="font-semibold text-white">Azure, Fabric & Power BI</span> — pour répondre aux enjeux techniques et stratégiques de mes clients. </p>
+ <head>
+  <meta charset="utf-8"/>
+  <title>
+   Afata Consulting
+  </title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+ </head>
+ <body class="bg-black text-white font-sans">
+  <!-- SECTION HERO EN TÊTE -->
+  <header class="flex max-w-7xl text-white min-h-screen flex-col relative text-center justify-center mx-auto items-center px-4 overflow-hidden" style="background-image: url('/static/archi.jpg'); background-size: cover; background-position: center;">
+   <!-- filtre sombre -->
+   <div class="absolute inset-0 bg-black bg-opacity-80 z-0">
+   </div>
+   <!-- Contenu au-dessus -->
+   <div class="relative z-10 flex flex-col items-center">
+    <img alt="Photo de profil" class="h-32 max-w-full shadow-lg mb-6 w-32 h-auto rounded-full" src="static/profil.jpg"/>
+    <h1 class="md:text-5xl mb-6 text-3xl font-bold">
+     Architecte Cloud Azure &amp; Microsoft Fabric
+    </h1>
+    <p class="text-purple-400 font-semibold mb-4 uppercase tracking-wide text-sm mt-8">
+     Expertise
+    </p>
+    <p class="text-lg text-gray-300 text-base leading-relaxed max-w-3xl mx-auto">
+     Avec
+     <span class="text-white font-semibold">
+      10 ans d'expertise
+     </span>
+     dans la data Microsoft, je conçois des plateformes cloud modernes —
+     <span class="text-white font-semibold">
+      Azure, Fabric &amp; Power BI
+     </span>
+     — pour répondre aux enjeux techniques et stratégiques de mes clients.
+    </p>
+   </div>
+  </header>
+  <section class="max-w-7xl bg-cover bg-no-repeat bg-center mx-auto px-4">
+   <div class="bg-black/80 py-20">
+    <!-- Optionnel : ajoute un voile sombre pour lisibilité -->
+    <h2 class="mb-12 text-white font-bold text-4xl text-center">
+     Mon Parcours
+    </h2>
+    <div class="grid grid-cols-[80px_1fr] md:grid-cols-[100px_1fr] gap-6 mb-16" data-aos="fade-up">
+     <!-- Colonne Année -->
+     <div class="flex justify-end items-start pt-2">
+      <span class="text-base font-bold text-lg text-white-400">
+       2016
+      </span>
+     </div>
+     <!-- Colonne Contenu + ligne -->
+     <div class="relative pl-6 border-l-4" style="border-color: #e81123">
+      <div class="flex flex-col md:flex-row items-center gap-6 pl-4">
+       <img alt="SQL Server" class="max-w-full rounded-lg shadow-lg object-contain w-24 h-auto h-24" src="{{ url_for('static', filename='/svg/sqlserver.svg') }}">
+        <div>
+         <span class="text-sm font-semibold" style="color: #e81123;">
+          SQL Server
+         </span>
+         <h3 class="mt-1 text-white font-bold text-2xl sm:text-xl">
+          Le classique de la Business Intelligence
+         </h3>
+         <p class="text-lg mt-2 text-gray-300 text-base">
+          C’est en
+          <strong>
+           2016
+          </strong>
+          , au sein d’une
+          <strong>
+           ESN
+          </strong>
+          , que j’ai fait mes premiers pas dans la
+          <strong>
+           Business Intelligence
+          </strong>
+          . J’ai participé à des projets d’intégration, d’analyse de données et de reporting dans des environnements
+          <strong>
+           on-premise
+          </strong>
+          , en m’appuyant sur l’écosystème
+          <strong>
+           Microsoft BI traditionnel
+          </strong>
+          :
+          <strong>
+           SSIS
+          </strong>
+          pour les flux ETL,
+          <strong>
+           SSAS
+          </strong>
+          pour l’analyse OLAP, et
+          <strong>
+           SSRS
+          </strong>
+          pour la diffusion des rapports. Ces premières années m’ont permis d’acquérir une base technique solide, mais aussi une vraie capacité d’adaptation grâce à la diversité des contextes clients.
+         </p>
+        </div>
+       </img>
       </div>
-    </header>
-    <section class="bg-cover bg-center bg-no-repeat" style="background-image: url('/static/.jpg');">
-      <div class="bg-black/80 py-20">
-        <!-- Optionnel : ajoute un voile sombre pour lisibilité -->
-        <h2 class="text-center text-4xl font-bold text-white mb-12">Mon Parcours</h2>
-        <div class="grid grid-cols-[80px_1fr] md:grid-cols-[100px_1fr] gap-6 mb-16" data-aos="fade-up">
-          <!-- Colonne Année -->
-          <div class="flex justify-end items-start pt-2">
-            <span class="text-lg font-bold text-white-400">2016</span>
-          </div>
-          <!-- Colonne Contenu + ligne -->
-          <div class="relative pl-6 border-l-4" style="border-color: #e81123">
-            <div class="flex flex-col md:flex-row items-center gap-6 pl-4">
-              <img src="{{ url_for('static', filename='/svg/sqlserver.svg') }}" alt="SQL Server" class="w-24 h-24 object-contain rounded-lg shadow-lg" />
-              <div>
-                <span class="text-sm font-semibold" style="color: #e81123;">SQL Server</span>
-                <h3 class="text-2xl font-bold text-white mt-1">Le classique de la Business Intelligence</h3>
-                <p class="text-gray-300 mt-2 text-lg"> C’est en <strong>2016</strong>, au sein d’une <strong>ESN</strong>, que j’ai fait mes premiers pas dans la <strong>Business Intelligence</strong>. J’ai participé à des projets d’intégration, d’analyse de données et de reporting dans des environnements <strong>on-premise</strong>, en m’appuyant sur l’écosystème <strong>Microsoft BI traditionnel</strong> : <strong>SSIS</strong> pour les flux ETL, <strong>SSAS</strong> pour l’analyse OLAP, et <strong>SSRS</strong> pour la diffusion des rapports. Ces premières années m’ont permis d’acquérir une base technique solide, mais aussi une vraie capacité d’adaptation grâce à la diversité des contextes clients. </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="grid grid-cols-[80px_1fr] md:grid-cols-[100px_1fr] gap-6 mb-20" data-aos="fade-up">
-          <!-- Colonne Année -->
-          <div class="flex justify-end items-start pt-2">
-            <span class="text-lg font-bold text-white-400">2018</span>
-          </div>
-          <!-- Contenu + ligne bleue -->
-          <div class="relative pl-6 border-l-4 border-blue-500">
-            <div class="flex flex-col md:flex-row items-center gap-6 pl-4">
-              <img src="{{ url_for('static', filename='svg/adf.svg') }}" alt="Azure" class="w-24 h-24 object-contain rounded-lg shadow-lg" />
-              <div>
-                <span class="text-sm text-blue-400 font-semibold">Azure & Power BI</span>
-                <h3 class="text-2xl font-bold text-white mt-1">Premiers pas vers le Cloud</h3>
-                <p class="text-gray-300 mt-2 text-lg"> Architecture hybride Cloud / on-prem, combinant Azure Data Factory, Azure SQL Database et des machines virtuelles Azure hébérgeant SSIS pour les transformations complexes. Coté reporting, Power BI prends progressivement le relais de SSRS, apportant des visualisations dynamiques et interactives adaptées aux usages métier. </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Freelance -->
-        <div class="grid grid-cols-[80px_1fr] md:grid-cols-[100px_1fr] gap-6 mb-20" data-aos="fade-up">
-          <!-- Colonne Année -->
-          <div class="flex justify-end items-start pt-2">
-            <span class="text-lg font-bold text-white-400">2023</span>
-          </div>
-          <!-- Contenu + ligne bleue -->
-          <div class="relative pl-6 border-l-4" style="border-color: #FFD700;">
-            <div class="flex flex-col md:flex-row items-center gap-6 pl-4">
-              <img src="{{ url_for('static', filename='setup.jpg') }}" alt="Setup Freelance" class="transition-transform duration-500 ease-in-out transform hover:scale-105 md:w-[500px] max-w-full rounded-xl shadow-2xl" />
-              <div class="max-w-2xl">
-                <span class="text-sm font-semibold" style="color: #FFD700;">Freelance</span>
-                <h3 class="text-2xl font-bold text-white mt-4">Le tournant de l'indépendance</h3>
-                <p class="text-gray-300 mt-2 text-lg">
-                  <strong>2023</strong> marque un tournant majeur : je choisis de devenir <strong>freelance</strong>. Et j’ai eu le privilège de commencer cette nouvelle aventure avec une belle preuve de confiance : <strong>mon ancien employeur m’a confié ma première mission</strong>. Depuis, j’accompagne mes clients avec autonomie et engagement dans la conception de <strong>plateformes data modernes</strong>.
-                </p>
-                <p class="text-gray-300 mt-4 text-lg"> Être indépendant, c’est aussi faire le choix de la liberté technique et de l’adaptabilité. Cela me permet de rester connecté à l’innovation tout en cultivant une relation de proximité avec les enjeux concrets du terrain. </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="grid grid-cols-[80px_1fr] md:grid-cols-[100px_1fr] gap-6 mb-20" data-aos="fade-up">
-          <!-- Colonne Année -->
-          <div class="flex justify-end items-start pt-2">
-            <span class="text-lg font-bold text-white-400">2024</span>
-          </div>
-          <!-- Contenu + ligne bleue -->
-          <div class="relative pl-6 border-l-4 border-blue-500">
-            <div class="flex flex-col md:flex-row items-center gap-6 pl-4">
-              <img src="{{ url_for('static', filename='svg/synapse.svg') }}" alt="Synapse" class="w-24 h-24 object-contain rounded-lg shadow-lg" />
-              <div>
-                <span class="text-sm text-blue-400 font-semibold">Plateformes Cloud</span>
-                <h3 class="text-2xl font-bold text-white mt-2">Le 100 % Cloud</h3>
-                <p class="text-gray-300 mt-2 text-lg"> À partir de <strong>2024</strong>, je commence à intervenir sur des <strong>plateformes Data entièrement cloud</strong>, combinant des approches <strong>ETL</strong> et <strong>ELT</strong>. Mise en œuvre de solutions basées sur <strong>Azure Synapse Analytics</strong>, <strong>Data Lake Storage</strong> et <strong>Power BI</strong>, pour des pipelines de données plus industrialisés, évolutifs et orientés self-service. </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- 2025 -->
-        <div class="grid grid-cols-[80px_1fr] md:grid-cols-[100px_1fr] gap-6 mb-20" data-aos="fade-up">
-          <!-- Colonne Année -->
-          <div class="flex justify-end items-start pt-2">
-            <span class="text-lg font-bold text-white-400">2025</span>
-          </div>
-          <!-- Contenu + ligne bleue -->
-          <div class="relative pl-6 border-l-4" style="border-color: #28C77B;">
-            <div class="flex flex-col md:flex-row items-center gap-6 pl-4">
-              <img src="{{ url_for('static', filename='/svg/fabric.svg') }}" alt="Microsoft Fabric" class="w-24 h-24 object-contain rounded-lg shadow-lg" />
-              <div>
-                <span class="text-sm font-semibold" style="color: #28C77B;">Microsoft Fabric</span>
-                <h3 class="text-2xl font-bold text-white mt-2">La plateforme unifiée de demain</h3>
-                <p class="text-gray-300 mt-2 text-lg"> En 2025, je participe activement à l’adoption de <strong>Microsoft Fabric</strong>, une <strong>plateforme SaaS unifiée</strong> pensée pour centraliser tous les besoins analytiques : ingestion, transformation, modélisation et visualisation. Grâce à <strong>OneLake</strong> et au modèle <strong>Médaillon</strong> (Bronze, Silver, Gold), je conçois des architectures data modulaires, évolutives et gouvernées. <br class="hidden md:block" /> Je m’appuie sur des technologies telles que <strong>Lakehouse</strong>, <strong>Warehouse</strong>, <strong>Power BI</strong>, <strong>Python</strong> et <strong>PySpark</strong> pour couvrir un large éventail de cas d’usage métier. </p>
-              </div>
-            </div>
-          </div>
-        </div>
-    </section> {% include "services.html" %} {% include "certifications.html" %} {% include "references.html" %}
-    <!-- AOS Script -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-      AOS.init({
+     </div>
+    </div>
+    <div class="grid grid-cols-[80px_1fr] md:grid-cols-[100px_1fr] gap-6 mb-20" data-aos="fade-up">
+     <!-- Colonne Année -->
+     <div class="flex justify-end items-start pt-2">
+      <span class="text-base font-bold text-lg text-white-400">
+       2018
+      </span>
+     </div>
+     <!-- Contenu + ligne bleue -->
+     <div class="relative pl-6 border-l-4 border-blue-500">
+      <div class="flex flex-col md:flex-row items-center gap-6 pl-4">
+       <img alt="Azure" class="max-w-full rounded-lg shadow-lg object-contain w-24 h-auto h-24" src="{{ url_for('static', filename='svg/adf.svg') }}"/>
+       <div>
+        <span class="text-sm text-blue-400 font-semibold">
+         Azure &amp; Power BI
+        </span>
+        <h3 class="mt-1 text-white font-bold text-2xl sm:text-xl">
+         Premiers pas vers le Cloud
+        </h3>
+        <p class="text-lg mt-2 text-gray-300 text-base">
+         Architecture hybride Cloud / on-prem, combinant Azure Data Factory, Azure SQL Database et des machines virtuelles Azure hébérgeant SSIS pour les transformations complexes. Coté reporting, Power BI prends progressivement le relais de SSRS, apportant des visualisations dynamiques et interactives adaptées aux usages métier.
+        </p>
+       </div>
+      </div>
+     </div>
+    </div>
+    <!-- Freelance -->
+    <div class="grid grid-cols-[80px_1fr] md:grid-cols-[100px_1fr] gap-6 mb-20" data-aos="fade-up">
+     <!-- Colonne Année -->
+     <div class="flex justify-end items-start pt-2">
+      <span class="text-base font-bold text-lg text-white-400">
+       2023
+      </span>
+     </div>
+     <!-- Contenu + ligne bleue -->
+     <div class="relative pl-6 border-l-4" style="border-color: #FFD700;">
+      <div class="flex flex-col md:flex-row items-center gap-6 pl-4">
+       <img alt="Setup Freelance" class="md:w-[500px] h-auto max-w-full transform ease-in-out transition-transform hover:scale-105 duration-500 rounded-xl shadow-2xl" src="{{ url_for('static', filename='setup.jpg') }}"/>
+       <div class="max-w-2xl">
+        <span class="text-sm font-semibold" style="color: #FFD700;">
+         Freelance
+        </span>
+        <h3 class="text-white mt-4 font-bold text-2xl sm:text-xl">
+         Le tournant de l'indépendance
+        </h3>
+        <p class="text-lg mt-2 text-gray-300 text-base">
+         <strong>
+          2023
+         </strong>
+         marque un tournant majeur : je choisis de devenir
+         <strong>
+          freelance
+         </strong>
+         . Et j’ai eu le privilège de commencer cette nouvelle aventure avec une belle preuve de confiance :
+         <strong>
+          mon ancien employeur m’a confié ma première mission
+         </strong>
+         . Depuis, j’accompagne mes clients avec autonomie et engagement dans la conception de
+         <strong>
+          plateformes data modernes
+         </strong>
+         .
+        </p>
+        <p class="mt-4 text-lg text-gray-300 text-base">
+         Être indépendant, c’est aussi faire le choix de la liberté technique et de l’adaptabilité. Cela me permet de rester connecté à l’innovation tout en cultivant une relation de proximité avec les enjeux concrets du terrain.
+        </p>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="grid grid-cols-[80px_1fr] md:grid-cols-[100px_1fr] gap-6 mb-20" data-aos="fade-up">
+     <!-- Colonne Année -->
+     <div class="flex justify-end items-start pt-2">
+      <span class="text-base font-bold text-lg text-white-400">
+       2024
+      </span>
+     </div>
+     <!-- Contenu + ligne bleue -->
+     <div class="relative pl-6 border-l-4 border-blue-500">
+      <div class="flex flex-col md:flex-row items-center gap-6 pl-4">
+       <img alt="Synapse" class="max-w-full rounded-lg shadow-lg object-contain w-24 h-auto h-24" src="{{ url_for('static', filename='svg/synapse.svg') }}"/>
+       <div>
+        <span class="text-sm text-blue-400 font-semibold">
+         Plateformes Cloud
+        </span>
+        <h3 class="text-white font-bold text-2xl mt-2 sm:text-xl">
+         Le 100 % Cloud
+        </h3>
+        <p class="text-lg mt-2 text-gray-300 text-base">
+         À partir de
+         <strong>
+          2024
+         </strong>
+         , je commence à intervenir sur des
+         <strong>
+          plateformes Data entièrement cloud
+         </strong>
+         , combinant des approches
+         <strong>
+          ETL
+         </strong>
+         et
+         <strong>
+          ELT
+         </strong>
+         . Mise en œuvre de solutions basées sur
+         <strong>
+          Azure Synapse Analytics
+         </strong>
+         ,
+         <strong>
+          Data Lake Storage
+         </strong>
+         et
+         <strong>
+          Power BI
+         </strong>
+         , pour des pipelines de données plus industrialisés, évolutifs et orientés self-service.
+        </p>
+       </div>
+      </div>
+     </div>
+    </div>
+    <!-- 2025 -->
+    <div class="grid grid-cols-[80px_1fr] md:grid-cols-[100px_1fr] gap-6 mb-20" data-aos="fade-up">
+     <!-- Colonne Année -->
+     <div class="flex justify-end items-start pt-2">
+      <span class="text-base font-bold text-lg text-white-400">
+       2025
+      </span>
+     </div>
+     <!-- Contenu + ligne bleue -->
+     <div class="relative pl-6 border-l-4" style="border-color: #28C77B;">
+      <div class="flex flex-col md:flex-row items-center gap-6 pl-4">
+       <img alt="Microsoft Fabric" class="max-w-full rounded-lg shadow-lg object-contain w-24 h-auto h-24" src="{{ url_for('static', filename='/svg/fabric.svg') }}"/>
+       <div>
+        <span class="text-sm font-semibold" style="color: #28C77B;">
+         Microsoft Fabric
+        </span>
+        <h3 class="text-white font-bold text-2xl mt-2 sm:text-xl">
+         La plateforme unifiée de demain
+        </h3>
+        <p class="text-lg mt-2 text-gray-300 text-base">
+         En 2025, je participe activement à l’adoption de
+         <strong>
+          Microsoft Fabric
+         </strong>
+         , une
+         <strong>
+          plateforme SaaS unifiée
+         </strong>
+         pensée pour centraliser tous les besoins analytiques : ingestion, transformation, modélisation et visualisation. Grâce à
+         <strong>
+          OneLake
+         </strong>
+         et au modèle
+         <strong>
+          Médaillon
+         </strong>
+         (Bronze, Silver, Gold), je conçois des architectures data modulaires, évolutives et gouvernées.
+         <br class="hidden md:block"/>
+         Je m’appuie sur des technologies telles que
+         <strong>
+          Lakehouse
+         </strong>
+         ,
+         <strong>
+          Warehouse
+         </strong>
+         ,
+         <strong>
+          Power BI
+         </strong>
+         ,
+         <strong>
+          Python
+         </strong>
+         et
+         <strong>
+          PySpark
+         </strong>
+         pour couvrir un large éventail de cas d’usage métier.
+        </p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section>
+  {% include "services_responsive.html" %} {% include "certifications_responsive.html" %} {% include "references_responsive.html" %}
+  <!-- AOS Script -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js">
+  </script>
+  <script>
+   AOS.init({
         duration: 1000,
         once: true
       });
-    </script>
-    <!-- Footer -->
-    <footer class="bg-[#0b0b0b] text-white py-8">
-      <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
-        <!-- LinkedIn -->
-        <div class="flex items-center space-x-2">
-          <img src="/static/svg/linkedin.svg" alt="LinkedIn" class="h-5 w-5">
-          <a href="https://www.linkedin.com/in/anas-fata-28212a85/" target="_blank" rel="noopener noreferrer" class="text-white font-sans font-semibold tracking-tight hover:underline"> Linkedin </a>
-        </div>
-        <!-- Contactez-moi -->
-        <a href="{{ url_for('contact') }}" class="text-xs text-gray-300 hover:text-white transition underline"> Contactez-moi </a>
-      </div>
-      <div class="mt-6 text-center text-xs text-gray-500"> &copy; 2025 Afata Consulting • Tous droits réservés </div>
-    </footer>
-  </body>
+  </script>
+  <!-- Footer -->
+  <footer class="max-w-7xl py-8 text-white bg-[#0b0b0b] mx-auto px-4">
+   <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+    <!-- LinkedIn -->
+    <div class="flex items-center space-x-2">
+     <img alt="LinkedIn" class="w-5 h-auto h-5 max-w-full" src="/static/svg/linkedin.svg"/>
+     <a class="text-white font-sans font-semibold tracking-tight hover:underline" href="https://www.linkedin.com/in/anas-fata-28212a85/" rel="noopener noreferrer" target="_blank">
+      Linkedin
+     </a>
+    </div>
+    <!-- Contactez-moi -->
+    <a class="text-xs text-gray-300 hover:text-white transition underline" href="{{ url_for('contact') }}">
+     Contactez-moi
+    </a>
+   </div>
+   <div class="mt-6 text-center text-xs text-gray-500">
+    © 2025 Afata Consulting • Tous droits réservés
+   </div>
+  </footer>
+ </body>
 </html>
