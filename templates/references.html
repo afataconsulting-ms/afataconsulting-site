@@ -1,0 +1,20 @@
+<section class="bg-[#f3f3f3] py-5 px-4 border-t border-[#333]">
+  <h2 class="text-3xl font-bold text-center text-black mb-12">Ils m'ont fait confiance</h2>
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center">
+    <!-- Exemple de client -->
+    <div class="text-center group">
+      <img src="{{ url_for('static', filename='references/entoria.png') }}" alt="entoria" class="h-8 w-auto object-contain grayscale group-hover:grayscale-0 transition duration-300" />
+    </div>
+    <!-- Autres exemples -->
+    <div class="text-center group">
+      <img src="{{ url_for('static', filename='references/erasteel.png') }}" alt="Erasteel" class="h-6 w-auto object-contain grayscale group-hover:grayscale-0 group-hover:brightness-150 transition duration-300" />
+    </div>
+    <div class="text-center group">
+      <img src="{{ url_for('static', filename='references/gineys.webp') }}" alt="gineys" class="h-16 object-contain grayscale group-hover:grayscale-0 transition duration-300" />
+    </div>
+    <div class="text-center group">
+      <img src="{{ url_for('static', filename='references/ingerop.png') }}" alt="ingerop" class="h-12 object-contain grayscale group-hover:grayscale-0 transition duration-300" />
+    </div>
+    <!-- Répète autant que nécessaire -->
+  </div>
+</section>
