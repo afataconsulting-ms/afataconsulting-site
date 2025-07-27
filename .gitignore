@@ -1,1 +1,16 @@
+# Ignorer les environnements virtuels
+venv/
 .env
+*.env
+
+# Ignorer les fichiers compilés Python
+__pycache__/
+*.pyc
+
+# Ignorer les fichiers node_modules
+node_modules/
+package-lock.json
+
+# Ignorer les fichiers système / IDE
+.DS_Store
+.vscode/
