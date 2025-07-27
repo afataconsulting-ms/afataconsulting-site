@@ -8,8 +8,7 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <script src="https://cdn.tailwindcss.com">
   </script>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
-<style>
+  <style>
   @media (max-width: 768px) {
     .timeline-content {
       padding-left: 1rem !important;
@@ -28,6 +27,7 @@
   }
 </style>
 
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
  </head>
  <body class="bg-black text-white font-sans">
   <!-- SECTION HERO EN TÊTE -->
@@ -71,9 +71,9 @@
       </span>
      </div>
      <!-- Colonne Contenu + ligne -->
-     <div class="relative pl-6 border-l-4 timeline-line" style="border-color: #e81123">
-      <div class="flex flex-col md:flex-row items-center gap-6 pl-4 pr-4 timeline-content">
-       <img alt="SQL Server" class="timeline-icon rounded-lg shadow-lg object-contain w-24 h-auto" src="{{ url_for('static', filename='/svg/sqlserver.svg') }}">
+     <div class="relative pl-6 border-l-4" style="border-color: #e81123">
+      <div class="flex flex-col md:flex-row items-center gap-6 pl-4">
+       <img alt="SQL Server" class="max-w-full rounded-lg shadow-lg object-contain w-24 h-auto h-24" src="{{ url_for('static', filename='/svg/sqlserver.svg') }}">
         <div>
          <span class="text-sm font-semibold" style="color: #e81123;">
           SQL Server
@@ -129,9 +129,9 @@
       </span>
      </div>
      <!-- Contenu + ligne bleue -->
-     <div class="relative pl-6 border-l-4 border-blue-500 timeline-line">
-      <div class="flex flex-col md:flex-row items-center gap-6 pl-4 pr-4 timeline-content">
-       <img alt="Azure" class="timeline-icon rounded-lg shadow-lg object-contain w-24 h-auto" src="{{ url_for('static', filename='svg/adf.svg') }}"/>
+     <div class="relative pl-6 border-l-4 border-blue-500">
+      <div class="flex flex-col md:flex-row items-center gap-6 pl-4">
+       <img alt="Azure" class="max-w-full rounded-lg shadow-lg object-contain w-24 h-auto h-24" src="{{ url_for('static', filename='svg/adf.svg') }}"/>
        <div>
         <span class="text-sm text-blue-400 font-semibold">
          Azure &amp; Power BI
@@ -155,8 +155,8 @@
       </span>
      </div>
      <!-- Contenu + ligne bleue -->
-     <div class="relative pl-6 border-l-4 timeline-line" style="border-color: #FFD700;">
-      <div class="flex flex-col md:flex-row items-center gap-6 pl-4 pr-4 timeline-content">
+     <div class="relative pl-6 border-l-4" style="border-color: #FFD700;">
+      <div class="flex flex-col md:flex-row items-center gap-6 pl-4">
        <img alt="Setup Freelance" class="md:w-[500px] h-auto max-w-full transform ease-in-out transition-transform hover:scale-105 duration-500 rounded-xl shadow-2xl" src="{{ url_for('static', filename='setup.jpg') }}"/>
        <div class="max-w-2xl">
         <span class="text-sm font-semibold" style="color: #FFD700;">
@@ -198,9 +198,9 @@
       </span>
      </div>
      <!-- Contenu + ligne bleue -->
-     <div class="relative pl-6 border-l-4 border-blue-500 timeline-line">
-      <div class="flex flex-col md:flex-row items-center gap-6 pl-4 pr-4 timeline-content">
-       <img alt="Synapse" class="timeline-icon rounded-lg shadow-lg object-contain w-24 h-auto" src="{{ url_for('static', filename='svg/synapse.svg') }}"/>
+     <div class="relative pl-6 border-l-4 border-blue-500">
+      <div class="flex flex-col md:flex-row items-center gap-6 pl-4">
+       <img alt="Synapse" class="max-w-full rounded-lg shadow-lg object-contain w-24 h-auto h-24" src="{{ url_for('static', filename='svg/synapse.svg') }}"/>
        <div>
         <span class="text-sm text-blue-400 font-semibold">
          Plateformes Cloud
@@ -252,9 +252,9 @@
       </span>
      </div>
      <!-- Contenu + ligne bleue -->
-     <div class="relative pl-6 border-l-4 timeline-line" style="border-color: #28C77B;">
-      <div class="flex flex-col md:flex-row items-center gap-6 pl-4 pr-4 timeline-content">
-       <img alt="Microsoft Fabric" class="timeline-icon rounded-lg shadow-lg object-contain w-24 h-auto" src="{{ url_for('static', filename='/svg/fabric.svg') }}"/>
+     <div class="relative pl-6 border-l-4" style="border-color: #28C77B;">
+      <div class="flex flex-col md:flex-row items-center gap-6 pl-4">
+       <img alt="Microsoft Fabric" class="max-w-full rounded-lg shadow-lg object-contain w-24 h-auto h-24" src="{{ url_for('static', filename='/svg/fabric.svg') }}"/>
        <div>
         <span class="text-sm font-semibold" style="color: #28C77B;">
          Microsoft Fabric
@@ -309,7 +309,7 @@
     </div>
    </div>
   </section>
-  {% include "services.html" %} {% include "certifications.html" %} {% include "references.html" %}
+  {% include "services_responsive.html" %} {% include "certifications_responsive.html" %} {% include "references_responsive.html" %}
   <!-- AOS Script -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js">
   </script>
