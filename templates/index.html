@@ -3,8 +3,12 @@
 {% block title %}Accueil - Afata Consulting{% endblock %}
 
 {% block content %}
-<header class="relative flex flex-col md:flex-row items-center justify-center px-4 md:px-6 min-h-screen overflow-hidden bg-black text-white">
-  
+<header class="relative flex flex-col md:flex-row items-center justify-center px-4 md:px-6 min-h-screen overflow-hidden bg-transparent text-white">
+
+
+  <!-- Overlay noir léger si besoin -->
+   <!-- <div class="absolute inset-0 bg-black bg-opacity-50"></div>-->
+
 <a href="/" class="absolute top-4 left-4 z-20 flex items-center space-x-2">
   <img src="/static/afaconsulting3.png" 
        alt="AfaConsulting Logo"
@@ -12,7 +16,7 @@
 </a>
 
   <!-- Fond animé -->
-  <div class="absolute inset-0 bg-[url('/static/1.jpg')] bg-cover opacity-30"></div>
+   <!--<div class="absolute inset-0 bg-[url('/static/2.jpg')] bg-cover opacity-30"></div>-->
 
   <!-- Visuel -->
   <div class="relative z-10 flex-shrink-0 mb-6 md:mb-0 md:mr-12">
