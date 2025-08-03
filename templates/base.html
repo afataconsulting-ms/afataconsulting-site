@@ -1,62 +1,82 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <title>{% block title %}Afata Consulting{% endblock %}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+<head>
+  <meta charset="UTF-8" />
+  <title>{% block title %}Afata Consulting{% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <style>
+    /* Supprime le background sur body */
+    body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
 
-    <style>
-body {
-  background-image: url('/static/4.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed; /* Seulement desktop */
-}
+    /* Le conteneur de l'image de fond */
+    .bg-container {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+    }
 
+    .bg-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body class="bg-black text-white font-sans">
 
+  <!-- Image de fond responsive -->
+  <div class="bg-container">
+    <picture>
+      <!-- Version mobile portrait -->
+      <source media="(max-width: 768px)" srcset="/static/4-mobile.jpg" type="image/jpeg">
+      <!-- Version desktop paysage -->
+      <source media="(min-width: 769px)" srcset="/static/4.jpg" type="image/jpeg">
+      <!-- Fallback -->
+      <img src="/static/4.jpg" alt="Fond décoratif">
+    </picture>
+  </div>
 
-    </style>
-  </head>
-  <body class="bg-black text-white font-sans">
+  {% block content %}{% endblock %}
 
-    {% block content %}{% endblock %}
+  <!-- Bouton flottant -->
+  <div id="fabContainer" class="fixed top-2 right-2 md:top-4 md:right-4 z-40 flex flex-col items-end space-y-1 md:space-y-2 pointer-events-auto">
+    <button id="fabButton" class="bg-purple-600 hover:bg-purple-700 text-white w-8 h-8 md:w-12 md:h-12 rounded-full shadow-lg flex items-center justify-center text-base md:text-xl transition pointer-events-auto">
+      ☰
+    </button>
 
-    <!-- Bouton flottant -->
-    <div id="fabContainer" class="fixed top-2 right-2 md:top-4 md:right-4 z-40 flex flex-col items-end space-y-1 md:space-y-2 pointer-events-auto">
-      <button id="fabButton" class="bg-purple-600 hover:bg-purple-700 text-white w-8 h-8 md:w-12 md:h-12 rounded-full shadow-lg flex items-center justify-center text-base md:text-xl transition pointer-events-auto">
-        ☰
-      </button>
-
-      <div id="fabSubMenu" class="hidden flex flex-col items-end space-y-1 md:space-y-2 text-right bg-transparent pointer-events-auto">
-        <a href="/" class="flex items-center space-x-2 text-white font-sans font-semibold tracking-tight hover:underline text-xs md:text-sm">Accueil</a>
-        <a href="{{ url_for('contact') }}" class="flex items-center space-x-2 text-white font-sans font-semibold tracking-tight hover:underline text-xs md:text-sm">Contactez-moi</a>
-        <div class="flex items-center space-x-2">
-          <img src="/static/svg/linkedin.svg" alt="LinkedIn" class="h-4 w-4 md:h-5 md:w-5">
-          <a href="https://www.linkedin.com/in/anas-fata-28212a85/" target="_blank" rel="noopener noreferrer" class="text-white font-sans font-semibold tracking-tight hover:underline text-xs md:text-sm">LinkedIn</a>
-        </div>
+    <div id="fabSubMenu" class="hidden flex flex-col items-end space-y-1 md:space-y-2 text-right bg-transparent pointer-events-auto">
+      <a href="/" class="flex items-center space-x-2 text-white font-sans font-semibold tracking-tight hover:underline text-xs md:text-sm">Accueil</a>
+      <a href="{{ url_for('contact') }}" class="flex items-center space-x-2 text-white font-sans font-semibold tracking-tight hover:underline text-xs md:text-sm">Contactez-moi</a>
+      <div class="flex items-center space-x-2">
+        <img src="/static/svg/linkedin.svg" alt="LinkedIn" class="h-4 w-4 md:h-5 md:w-5">
+        <a href="https://www.linkedin.com/in/anas-fata-28212a85/" target="_blank" rel="noopener noreferrer" class="text-white font-sans font-semibold tracking-tight hover:underline text-xs md:text-sm">LinkedIn</a>
       </div>
     </div>
+  </div>
 
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-      AOS.init({ duration: 1000, once: true });
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
 
-      const fabButton = document.getElementById('fabButton');
-      const fabSubMenu = document.getElementById('fabSubMenu');
+    const fabButton = document.getElementById('fabButton');
+    const fabSubMenu = document.getElementById('fabSubMenu');
 
-      fabButton.addEventListener('click', () => {
-        fabSubMenu.classList.toggle('hidden');
-      });
+    fabButton.addEventListener('click', () => {
+      fabSubMenu.classList.toggle('hidden');
+    });
 
-      document.addEventListener('click', (event) => {
-        if (!fabButton.contains(event.target) && !fabSubMenu.contains(event.target)) {
-          fabSubMenu.classList.add('hidden');
-        }
-      });
-    </script>
-  </body>
+    document.addEventListener('click', (event) => {
+      if (!fabButton.contains(event.target) && !fabSubMenu.contains(event.target)) {
+        fabSubMenu.classList.add('hidden');
+      }
+    });
+  </script>
+</body>
 </html>
