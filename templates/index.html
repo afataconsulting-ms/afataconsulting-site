@@ -6,13 +6,10 @@
 <header class="relative flex flex-col md:flex-row items-center justify-center px-4 md:px-6 min-h-screen overflow-hidden bg-transparent text-white">
 
 
-  <!-- Overlay noir léger si besoin -->
-   <!-- <div class="absolute inset-0 bg-black bg-opacity-50"></div>-->
-
-<a href="/" class="absolute top-4 left-4 z-20 flex items-center space-x-2">
-  <img src="/static/afa.png" 
+<a href="/" class="fixed -top-12 -left-10 z-20 flex items-center space-x-2">
+  <img src="/static/afa4.png" 
        alt="AfaConsulting Logo"
-       class="h-[120px] md:h-[160px] w-auto">
+       class="max-h-40 md:max-h-[240px] w-auto">
 </a>
 
   <!-- Fond animé -->
@@ -20,7 +17,7 @@
 
   <!-- Visuel -->
   <div class="relative z-10 flex-shrink-0 mb-6 md:mb-0 md:mr-12">
-    <img src="static/profil.jpg" alt="Photo de profil"
+    <img src="static/profil3.png" alt="Photo de profil"
          class="w-32 sm:w-40 md:w-[19rem] drop-shadow-2xl rounded-full">
   </div>
 
@@ -29,7 +26,7 @@
     <h1 class="text-2xl sm:text-3xl md:text-6xl font-bold leading-tight mb-3 md:mb-4">
       Architecte Cloud Azure & Microsoft Fabric
     </h1>
-    <p class="text-purple-400 font-semibold uppercase tracking-wide mb-2">
+    <p class="font-semibold uppercase tracking-wide mb-2" style="color:#4dd1dd">
       Expertise
     </p>
     <p class="text-sm sm:text-base md:text-lg leading-relaxed text-gray-300 mb-6 md:mb-8">
@@ -39,9 +36,12 @@
       pour répondre aux enjeux techniques et stratégiques de mes clients.
     </p>
 
-    <a href="#path" class="border border-purple-500 text-purple-400 px-4 py-2 md:px-6 md:py-3 rounded-full hover:bg-purple-500 hover:text-white transition text-sm sm:text-base">
-      Découvrir mon parcours →
-    </a>
+<a href="#path" class="border px-4 py-2 md:px-6 md:py-3 rounded-full transition text-sm sm:text-base"
+   style="border-color:#bb00ff; color:#bb00ff"
+   onmouseover="this.style.backgroundColor='#bb00ff'; this.style.color='white';"
+   onmouseout="this.style.backgroundColor='transparent'; this.style.color='#bb00ff';">
+  Découvrir mon parcours →
+</a>
   </div>
 </header>
 
@@ -54,7 +54,8 @@
 {% include "references.html" %}
 
 <!-- Footer -->
-<footer class="bg-[#0b0b0b] text-white py-4 md:py-8">
+<footer class="bg-[#0b0b0b] border-t border-white/10 shadow-[0_0_10px_#ffffff10] text-white py-4 md:py-8">
+
   <div class="max-w-7xl mx-auto px-4 md:px-6 flex flex-col md:flex-row items-center justify-between gap-3 md:gap-6">
     <div class="flex items-center space-x-2">
       <img src="/static/svg/linkedin.svg" alt="LinkedIn" class="h-5 w-5">
