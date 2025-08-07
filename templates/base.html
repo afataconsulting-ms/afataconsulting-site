@@ -27,7 +27,40 @@
       object-fit: cover;
     }
 
-    
+  #timeline {
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+  }
+
+  .year-slide {
+    scroll-snap-align: start;
+  }
+
+    /* Cacher la scrollbar horizontalement */
+  #timelineWrapper::-webkit-scrollbar {
+    display: none;
+  }
+
+  #timelineWrapper {
+    -ms-overflow-style: none;  /* IE & Edge */
+    scrollbar-width: none;     /* Firefox */
+  }
+
+    .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 9999px;
+    border: 2px solid white;
+    background-color: transparent;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+
+  .dot.active {
+    background-color: white;
+    transform: scale(1.2);
+  }
+
+  
   </style>
 </head>
 <body class="bg-black text-white font-sans">
@@ -44,7 +77,7 @@
     </picture>
   </div>
 
-  {% block content %}{% endblock %}
+
 
 <!-- Bouton hamburger / close -->
 <div id="fabContainer" class="fixed top-5 right-3 z-50">
@@ -111,5 +144,8 @@ document.addEventListener('click', (event) => {
 
 
 </script>
+
+  {% block content %}{% endblock %}
+  {% block scripts %}{% endblock %}
 </body>
 </html>

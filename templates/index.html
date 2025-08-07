@@ -24,7 +24,7 @@
   <!-- Texte -->
   <div class="relative z-10 max-w-md md:max-w-xl text-center md:text-left">
     <h1 class="text-2xl sm:text-3xl md:text-6xl font-bold leading-tight mb-3 md:mb-4">
-      Architecte Cloud Azure & Microsoft Fabric
+      Architecte Data Microsoft Fabric, Azure & Power BI
     </h1>
     <p class="font-semibold uppercase tracking-wide mb-2" style="color:#4dd1dd">
       Expertise
@@ -32,7 +32,7 @@
     <p class="text-sm sm:text-base md:text-lg leading-relaxed text-gray-300 mb-6 md:mb-8">
       Avec <span class="font-semibold text-white">10 ans d'expertise</span> dans la data Microsoft, 
       je conçois des plateformes cloud modernes — 
-      <span class="font-semibold text-white">Azure, Fabric & Power BI</span> — 
+      <span class="font-semibold text-white">Fabric, Azure & Power BI</span> — 
       pour répondre aux enjeux techniques et stratégiques de mes clients.
     </p>
 
@@ -50,6 +50,7 @@
 
 {% include "path.html" %}
 {% include "services_responsive.html" %}
+{% include "technos.html" %}
 {% include "certifications_responsive.html" %}
 {% include "references.html" %}
 
@@ -77,3 +78,47 @@
 
 
 {% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  console.log("Script timeline chargé");
+
+  (function initTimeline() {
+    const timelineWrapper = document.getElementById('timelineWrapper');
+    const slides = document.querySelectorAll('.year-slide');
+    const indicators = document.getElementById('yearIndicators');
+
+    if (!timelineWrapper || slides.length === 0) return;
+
+    let currentIndex = 0;
+
+    // Création des points
+    slides.forEach((_, index) => {
+      const dot = document.createElement('button');
+      dot.className = 'dot';
+      dot.addEventListener('click', () => goToSlide(index));
+      indicators.appendChild(dot);
+    });
+
+    function updateActiveIndicator() {
+      [...indicators.children].forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentIndex);
+      });
+    }
+
+    function goToSlide(index) {
+      if (index < 0 || index >= slides.length) return;
+      currentIndex = index;
+      const offset = slides[index].offsetLeft;
+      timelineWrapper.scrollTo({ left: offset, behavior: 'smooth' });
+      updateActiveIndicator();
+    }
+
+    goToSlide(0);
+  })();
+});
+</script>
+
+{% endblock %}
+
