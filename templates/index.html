@@ -67,9 +67,12 @@
         LinkedIn
       </a>
     </div>
-    <a href="{{ url_for('contact') }}" class="text-xs text-gray-300 hover:text-white transition underline">
-      Contactez-moi
-    </a>
+<a href="{{ url_for('contact') }}" 
+   class="text-xs text-gray-300 transition duration-300 ease-out 
+          hover:text-white hover:-translate-y-0.5 hover:scale-105"
+   style="text-decoration: none;">
+  Contactez-moi
+</a>
   </div>
   <div class="mt-4 md:mt-6 text-center text-xs text-gray-500">
     &copy; 2025 Afata Consulting • Tous droits réservés
@@ -81,42 +84,60 @@
 
 {% block scripts %}
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-  console.log("Script timeline chargé");
+document.addEventListener('DOMContentLoaded', () => {
+  const wrapper = document.getElementById('timelineWrapper');
+  const slides  = [...document.querySelectorAll('.year-slide')];
+  const dotsBox = document.getElementById('yearIndicators');
 
-  (function initTimeline() {
-    const timelineWrapper = document.getElementById('timelineWrapper');
-    const slides = document.querySelectorAll('.year-slide');
-    const indicators = document.getElementById('yearIndicators');
-
-    if (!timelineWrapper || slides.length === 0) return;
-
-    let currentIndex = 0;
-
-    // Création des points
-    slides.forEach((_, index) => {
-      const dot = document.createElement('button');
-      dot.className = 'dot';
-      dot.addEventListener('click', () => goToSlide(index));
-      indicators.appendChild(dot);
+  // 1) Build the dots
+  const dots = slides.map((slide, i) => {
+    const year = slide.dataset.year ?? i + 1;
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.title = year;
+    btn.setAttribute('aria-label', `Aller à ${year}`);
+    btn.setAttribute('aria-current', i === 0 ? 'true' : 'false');
+    btn.addEventListener('click', () => {
+      slide.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
     });
+    dotsBox.appendChild(btn);
+    return btn;
+  });
 
-    function updateActiveIndicator() {
-      [...indicators.children].forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentIndex);
-      });
-    }
+  // 2) Mark a dot as active
+  function setActive(index){
+    dots.forEach((d, i) => d.setAttribute('aria-current', i === index ? 'true' : 'false'));
+  }
 
-    function goToSlide(index) {
-      if (index < 0 || index >= slides.length) return;
-      currentIndex = index;
-      const offset = slides[index].offsetLeft;
-      timelineWrapper.scrollTo({ left: offset, behavior: 'smooth' });
-      updateActiveIndicator();
-    }
+  // 3) Observe which slide is centered (most visible in wrapper)
+  const io = new IntersectionObserver((entries) => {
+    // pick the entry with the largest intersection ratio
+    const visible = entries
+      .filter(e => e.isIntersecting)
+      .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
 
-    goToSlide(0);
-  })();
+    if (!visible) return;
+    const index = slides.indexOf(visible.target);
+    if (index >= 0) setActive(index);
+  }, {
+    root: wrapper,
+    threshold: [0.5, 0.6, 0.7] // become active when ~60% visible
+  });
+
+  slides.forEach(s => io.observe(s));
+
+  // 4) As a safety net for browsers with flaky IO + momentum scrolling,
+  //    refresh active dot at the end of a scroll.
+  let raf;
+  wrapper.addEventListener('scroll', () => {
+    cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(() => {
+      // find the slide whose left edge is closest to wrapper.scrollLeft
+      const lefts = slides.map(s => Math.abs(s.offsetLeft - wrapper.scrollLeft));
+      const idx = lefts.indexOf(Math.min(...lefts));
+      setActive(idx);
+    });
+  }, { passive: true });
 });
 </script>
 

@@ -6,62 +6,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-  <style>
-    /* Supprime le background sur body */
-    body {
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
-    }
+<style>
+  body{ margin:0; padding:0; overflow-x:hidden; }
 
-    /* Le conteneur de l'image de fond */
-    .bg-container {
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-    }
+  .bg-container{ position:fixed; inset:0; z-index:-1; }
+  .bg-container img{ width:100%; height:100%; object-fit:cover; }
 
-    .bg-container img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-  #timeline {
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
+  /* Scroll / snap */
+  #timeline{ scroll-behavior:smooth; }
+  #timelineWrapper{
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+    scroll-behavior:smooth;
+    touch-action:pan-x;
+    overscroll-behavior-x:contain;
   }
+  .year-slide{ scroll-snap-align:center; }
 
-  .year-slide {
-    scroll-snap-align: start;
+  /* Cacher la scrollbar horizontale */
+  #timelineWrapper::-webkit-scrollbar{ display:none; }
+
+  /* Dots – version aria-current */
+  #yearIndicators button{
+    width:.75rem; height:.75rem; border-radius:9999px;
+    opacity:.5; background:#fff; transition:transform .2s, opacity .2s;
   }
+  #yearIndicators button[aria-current="true"]{ opacity:1; transform:scale(1.2); }
 
-    /* Cacher la scrollbar horizontalement */
-  #timelineWrapper::-webkit-scrollbar {
-    display: none;
+  /* Burger au-dessus de tout */
+  .site-header{ position:fixed; top:0; left:0; right:0; z-index:9999; pointer-events:auto; isolation:isolate; }
+  #path, #timelineWrapper, #timeline{ position:relative; z-index:0; }
+
+  /* Décors non cliquables */
+  #path .decor, #path canvas, #path [data-decor], #path::before, #path::after{
+    pointer-events:none;
   }
+</style>
 
-  #timelineWrapper {
-    -ms-overflow-style: none;  /* IE & Edge */
-    scrollbar-width: none;     /* Firefox */
-  }
-
-    .dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 9999px;
-    border: 2px solid white;
-    background-color: transparent;
-    transition: background-color 0.3s, transform 0.3s;
-  }
-
-  .dot.active {
-    background-color: white;
-    transform: scale(1.2);
-  }
-
-  
-  </style>
 </head>
 <body class="bg-black text-white font-sans">
 
@@ -88,12 +69,21 @@
 </div>
 
 
-<div id="sideMenu" 
+<div id="sideMenu"  
      class="fixed top-20 right-0 h-auto min-h-[160px] w-56 text-white transform translate-x-full transition-transform duration-300 z-40 flex flex-col items-start p-4 space-y-4 shadow-lg rounded-l-xl bg-gradient-to-br from-[#1f004d]/90 to-[#0a0f2c]/90 backdrop-blur-md">
 
   <!-- Liens -->
-  <a href="/" class="text-base font-medium hover:underline tracking-wide text-white-800">Accueil</a>
-  <a href="{{ url_for('contact') }}" class="text-base font-medium hover:underline tracking-wide text-white-800">Contactez-moi</a>
+  <a href="/" 
+     class="relative text-base font-medium tracking-wide text-white no-underline transition duration-300 ease-out hover:text-gray-200">
+    Accueil
+    <span class="absolute left-0 -bottom-0.5 w-0 h-[1px] bg-gray-200 transition-all duration-300 hover:w-full"></span>
+  </a>
+
+  <a href="{{ url_for('contact') }}" 
+     class="relative text-base font-medium tracking-wide text-white no-underline transition duration-300 ease-out hover:text-gray-200">
+    Contactez-moi
+    <span class="absolute left-0 -bottom-0.5 w-0 h-[1px] bg-gray-200 transition-all duration-300 hover:w-full"></span>
+  </a>
 
   <!-- Icône LinkedIn -->
   <div class="mt-1">
@@ -103,8 +93,8 @@
       </svg>
     </a>
   </div>
-
 </div>
+
 
 
 
